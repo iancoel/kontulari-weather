@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 export const HeaderContainer = styled.header`
   height: 100px;
   max-width: 100%;
-  background: #222222;
+  background: #633faa;
   border-radius: 0 0 10px 10px;
   padding: 30px;
   display: flex;
@@ -23,6 +23,6 @@ export const ButtonsContainer = styled.ul`
 `;
 
 export const HeaderButton = styled(Button)`
-  background-color: #fb8b24 !important;
+  background-color: #ff6542 !important;
   margin-left: 20px !important;
 `;
