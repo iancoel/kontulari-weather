@@ -24,14 +24,32 @@ export const Info = styled.p<InfoProps>`
   margin-top: ${({ first }) => (first ? '0' : '20px')};
 `;
 
-export const InnerCardContainer = styled.div`
+interface InnerCardContainerProps {
+  scrollable?: boolean;
+}
+export const InnerCardContainer = styled.div<InnerCardContainerProps>`
   width: 50%;
   padding: 30px;
+  height: 400px;
+  overflow-y: ${({ scrollable }) => (scrollable ? 'scroll' : 'hidden')};
+  scroll-behavior: smooth;
 `;
 
-export const ForecastContainer = styled.div`
+interface ForecastContainerProps {
+  divisors?: boolean;
+}
+export const ForecastContainer = styled.div<ForecastContainerProps>`
   background: #231123;
   border-radius: 0 10px 10px 0;
   padding: 20px;
   margin-top: 15px;
+
+  p:after {
+    content: '';
+    display: ${({ divisors }) => (divisors ? 'block' : 'inline')};
+    height: 1px;
+    width: 100%;
+    margin-top: 10px;
+    background: rgba(251, 251, 255, 0.1);
+  }
 `;

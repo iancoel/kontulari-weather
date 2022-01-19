@@ -32,10 +32,10 @@ const CityCard = () => {
         </Info>
         <Info></Info>
       </InnerCardContainer>
-      <InnerCardContainer>
+      <InnerCardContainer scrollable>
         <Title>Forecasts</Title>
         {cityData?.consolidated_weather.map((forecast: any, index: any) => (
-          <ForecastContainer key={index}>
+          <ForecastContainer key={index} divisors>
             <Info first>{forecast.weather_state_name}</Info>
             <Info>Direção do vento: {forecast.wind_direction_compass}</Info>
             <Info>Velocidade do vento: {forecast.wind_speed}</Info>
