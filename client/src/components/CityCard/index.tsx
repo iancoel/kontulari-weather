@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../../utils/api';
+import citiesList from '../../utils/citiesList';
 import {
   CardContainer,
   Title,
@@ -18,17 +19,26 @@ const CityCard = () => {
   const state = useSelector((state) => state);
 
   useEffect(() => {
+    let containsCity = false;
+    citiesList.forEach((city: string) => {
+      if (city.includes(state as string)) containsCity = true;
+    });
+
     if (state) {
       setLoading(true);
       api
         .get(`?location=${state}`)
         .then((response) => {
-          setCityData(response.data);
+          if (containsCity) setCityData(response.data);
+          setTimeout(setLoading, 1500, false);
         })
-        .catch((error) => console.warn(error))
-        .finally(() => setTimeout(setLoading, 1500, false));
+        .catch((error) => console.warn(error));
     }
   }, [state]);
+
+  if (!cityData) {
+    return <p></p>;
+  }
 
   if (loading) {
     return (
