@@ -9,20 +9,24 @@ import {
   SourceButton,
   ButtonAnchor,
 } from './styles';
+import { useSelector } from 'react-redux';
 
 const CityCard = () => {
   const [cityData, setCityData] = useState<any>();
+  const state = useSelector((state) => state);
 
   console.log(cityData?.time.slice(11, 19));
 
   useEffect(() => {
-    api
-      .get('?location=Salvador')
-      .then((response) => {
-        setCityData(response.data);
-      })
-      .catch((error) => console.warn(error));
-  }, []);
+    if (state) {
+      api
+        .get(`?location=${state}`)
+        .then((response) => {
+          setCityData(response.data);
+        })
+        .catch((error) => console.warn(error));
+    }
+  }, [state]);
 
   return (
     <CardContainer>
