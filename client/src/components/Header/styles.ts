@@ -14,7 +14,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const Title = styled.h1`
-  font-size: 24px;
+  font-size: 36px;
   font-family: sans-serif;
 `;
 
