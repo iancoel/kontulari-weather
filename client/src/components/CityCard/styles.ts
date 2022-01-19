@@ -15,13 +15,23 @@ export const Title = styled.h1`
   font-family: sans-serif;
 `;
 
-export const Info = styled.p`
+interface InfoProps {
+  first?: boolean;
+}
+export const Info = styled.p<InfoProps>`
   font-size: 16px;
   font-family: sans-serif;
-  margin-top: 20px;
+  margin-top: ${({ first }) => (first ? '0' : '20px')};
 `;
 
 export const InnerCardContainer = styled.div`
   width: 50%;
   padding: 30px;
+`;
+
+export const ForecastContainer = styled.div`
+  background: #231123;
+  border-radius: 0 10px 10px 0;
+  padding: 20px;
+  margin-top: 15px;
 `;

@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import api from '../../utils/api';
-import { CardContainer, Title, Info, InnerCardContainer } from './styles';
+import {
+  CardContainer,
+  Title,
+  Info,
+  InnerCardContainer,
+  ForecastContainer,
+} from './styles';
 
 const CityCard = () => {
   const [cityData, setCityData] = useState<any>();
@@ -26,7 +32,22 @@ const CityCard = () => {
         </Info>
         <Info></Info>
       </InnerCardContainer>
-      <InnerCardContainer></InnerCardContainer>
+      <InnerCardContainer>
+        <Title>Forecasts</Title>
+        {cityData?.consolidated_weather.map((forecast: any, index: any) => (
+          <ForecastContainer key={index}>
+            <Info first>{forecast.weather_state_name}</Info>
+            <Info>Direção do vento: {forecast.wind_direction_compass}</Info>
+            <Info>Velocidade do vento: {forecast.wind_speed}</Info>
+            <Info>Temp. mínima: {forecast.min_temp}</Info>
+            <Info>Temp. máxima: {forecast.max_temp}</Info>
+            <Info>Temp. atual: {forecast.the_temp}</Info>
+            <Info>Pressão atmosférica: {forecast.air_pressure}</Info>
+            <Info>Umidade: {forecast.humidity}</Info>
+            <Info>Fonte: {cityData?.sources[index].title}</Info>
+          </ForecastContainer>
+        ))}
+      </InnerCardContainer>
     </CardContainer>
   );
 };
