@@ -1,4 +1,4 @@
-const citiesList = [
+const citiesListWithDuplicates = [
   'San Francisco',
   'Hamburg',
   'New Delhi',
@@ -177,5 +177,9 @@ const citiesList = [
   'Brasília',
   'Salvador',
 ];
+
+const citiesList = citiesListWithDuplicates.sort().filter((item, position) => {
+  return citiesListWithDuplicates.indexOf(item) === position;
+});
 
 export default citiesList;
