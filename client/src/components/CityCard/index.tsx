@@ -6,6 +6,8 @@ import {
   Info,
   InnerCardContainer,
   ForecastContainer,
+  SourceButton,
+  ButtonAnchor,
 } from './styles';
 
 const CityCard = () => {
@@ -44,7 +46,12 @@ const CityCard = () => {
             <Info>Temp. atual: {forecast.the_temp}</Info>
             <Info>Pressão atmosférica: {forecast.air_pressure}</Info>
             <Info>Umidade: {forecast.humidity}</Info>
-            <Info>Fonte: {cityData?.sources[index].title}</Info>
+            <Info>
+              Fonte:
+              <ButtonAnchor href={cityData?.sources[index].url} target="_blank">
+                <SourceButton>{cityData?.sources[index].title}</SourceButton>
+              </ButtonAnchor>
+            </Info>
           </ForecastContainer>
         ))}
       </InnerCardContainer>
