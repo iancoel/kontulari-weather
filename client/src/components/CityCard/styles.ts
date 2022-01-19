@@ -34,6 +34,26 @@ export const InnerCardContainer = styled.div<InnerCardContainerProps>`
   height: 400px;
   overflow-y: ${({ scrollable }) => (scrollable ? 'scroll' : 'hidden')};
   scroll-behavior: smooth;
+
+  scrollbar-color: #633faa #ff6542;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ff6542;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #633faa;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: #633faa;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
 `;
 
 interface ForecastContainerProps {
