@@ -13,10 +13,14 @@ import {
 const CityCard = () => {
   const [cityData, setCityData] = useState<any>();
 
+  console.log(cityData?.time.slice(11, 19));
+
   useEffect(() => {
     api
       .get('?location=Salvador')
-      .then((response) => setCityData(response.data))
+      .then((response) => {
+        setCityData(response.data);
+      })
       .catch((error) => console.warn(error));
   }, []);
 
@@ -26,13 +30,13 @@ const CityCard = () => {
         <Title>
           {cityData?.title} / {cityData?.parent.title}
         </Title>
-        <Info>{cityData?.time}</Info>
-        <Info>Nascer do sol às {cityData?.sun_rise}</Info>
-        <Info>Pôr do sol às {cityData?.sun_set}</Info>
+        <Info>Horário: {cityData?.time.slice(11, 19)}</Info>
+        <Info>Nascer do sol às {cityData?.sun_rise.slice(11, 19)}</Info>
+        <Info>Pôr do sol às {cityData?.sun_set.slice(11, 19)}</Info>
         <Info>
-          Fuso {cityData?.timezone} - {cityData?.timezone_name}
+          Fuso {cityData?.timezone.replace('_', ' ')} -{' '}
+          {cityData?.timezone_name}
         </Info>
-        <Info></Info>
       </InnerCardContainer>
       <InnerCardContainer scrollable>
         <Title>Forecasts</Title>
