@@ -23,6 +23,10 @@ export const Info = styled.p<InfoProps>`
   font-size: 16px;
   font-family: sans-serif;
   margin-top: ${({ first }) => (first ? '0' : '20px')};
+
+  &:last-child::after {
+    display: inline;
+  }
 `;
 
 interface InnerCardContainerProps {
