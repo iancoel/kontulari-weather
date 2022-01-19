@@ -1,3 +1,4 @@
+import React, { ChangeEvent, useState } from 'react';
 import {
   ButtonsContainer,
   HeaderContainer,
@@ -9,6 +10,8 @@ import TextField from '@mui/material/TextField';
 import citiesList from '../../utils/citiesList';
 
 const Header = () => {
+  const [selectedCity, setSelectedCity] = useState('');
+
   return (
     <HeaderContainer>
       <Title>Kontulari - Weather</Title>
@@ -18,13 +21,25 @@ const Header = () => {
         size="small"
         options={citiesList}
         sx={{ width: 300 }}
+        inputValue={selectedCity ? selectedCity : ''}
+        onChange={(event, value) => setSelectedCity(value!)}
+        onInputChange={(event, value) => setSelectedCity(value!)}
         renderInput={(params) => (
-          <TextField {...params} placeholder="Insira o nome da cidade" />
+          <TextField
+            {...params}
+            placeholder="Insira o nome da cidade"
+            onChange={({ target }) => setSelectedCity(target.value)}
+          />
         )}
       />
       <ButtonsContainer>
         <li>
-          <HeaderButton variant="contained">Botão 1</HeaderButton>
+          <HeaderButton
+            onClick={() => console.log(selectedCity)}
+            variant="contained"
+          >
+            Botão 1
+          </HeaderButton>
         </li>
         <li>
           <HeaderButton variant="contained">Botão 2</HeaderButton>
