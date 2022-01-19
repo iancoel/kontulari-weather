@@ -1,4 +1,6 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateCity } from '../../store/actions';
 import {
   ButtonsContainer,
   HeaderContainer,
@@ -11,6 +13,11 @@ import citiesList from '../../utils/citiesList';
 
 const Header = () => {
   const [selectedCity, setSelectedCity] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateCity(selectedCity));
+  }, [selectedCity, dispatch]);
 
   return (
     <HeaderContainer>
