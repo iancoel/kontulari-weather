@@ -6,9 +6,9 @@ export const CardContainer = styled.div`
   width: 100%;
   display: flex;
   margin-top: 50px;
-  background: #633faa;
+  background: ${({ theme }) => theme.colors.darkPurple};
   border-radius: 10px;
-  color: #fbfbff;
+  color: ${({ theme }) => theme.colors.white};
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -43,19 +43,20 @@ export const InnerCardContainer = styled.div<InnerCardContainerProps>`
   overflow-y: ${({ scrollable }) => (scrollable ? 'scroll' : 'hidden')};
   scroll-behavior: smooth;
 
-  scrollbar-color: #633faa darkorange;
+  scrollbar-color: ${({ theme }) => theme.colors.darkPurple}
+    ${({ theme }) => theme.colors.darkOrange};
   scrollbar-width: thin;
 
   &::-webkit-scrollbar-thumb {
-    background-color: darkorange;
+    background-color: ${({ theme }) => theme.colors.darkOrange};
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #633faa;
+    background-color: ${({ theme }) => theme.colors.darkPurple};
   }
 
   &::-webkit-scrollbar-corner {
-    background-color: #633faa;
+    background-color: ${({ theme }) => theme.colors.darkPurple};
   }
 
   &::-webkit-scrollbar {
@@ -73,7 +74,7 @@ interface ForecastContainerProps {
   divisors?: boolean;
 }
 export const ForecastContainer = styled.div<ForecastContainerProps>`
-  background: #231123;
+  background: ${({ theme }) => theme.colors.lightPurple};
   border-radius: 0 10px 10px 0;
   padding: 20px;
   margin-top: 15px;
@@ -84,14 +85,14 @@ export const ForecastContainer = styled.div<ForecastContainerProps>`
     height: 1px;
     width: 100%;
     margin-top: 10px;
-    background: rgba(251, 251, 255, 0.1);
+    background: rgba(30, 30, 30, 0.2);
   }
 `;
 
 export const SourceButton = styled(Button)`
-  background-color: darkorange !important;
+  background-color: ${({ theme }) => theme.colors.darkOrange} !important;
   margin-left: 20px !important;
-  color: #fbfbff !important;
+  color: ${({ theme }) => theme.colors.white} !important;
 `;
 
 export const ButtonAnchor = styled.a`
