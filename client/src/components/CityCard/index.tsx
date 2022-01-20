@@ -12,9 +12,10 @@ import {
 } from './styles';
 import { useSelector } from 'react-redux';
 import { Skeleton } from '@mui/material';
+import { IResponseData } from '../../interfaces';
 
 const CityCard = () => {
-  const [cityData, setCityData] = useState<any>();
+  const [cityData, setCityData] = useState<IResponseData>();
   const [loading, setLoading] = useState(false);
   const state = useSelector((state) => state);
 
