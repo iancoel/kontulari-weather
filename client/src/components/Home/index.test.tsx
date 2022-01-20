@@ -1,18 +1,12 @@
-// import dependencies
-import React from 'react';
-
 // import react-testing methods
-import { render, fireEvent, waitFor, screen } from '@testing-library/react';
-
-// add custom jest matchers from jest-dom
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-// the component to test
 import Home from './index';
 import { ThemeProvider } from 'styled-components';
 import { StylesProvider } from '@material-ui/core';
 import theme from '../../theme/theme';
-import store from '../../store/store';
 import { Provider } from 'react-redux';
+import store from '../../store/store';
 
 const homeWithMocks = () =>
   render(
