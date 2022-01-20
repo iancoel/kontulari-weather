@@ -24,7 +24,7 @@ const Header = () => {
         renderInput={(params) => (
           <TextField
             {...params}
-            placeholder="Insira o nome da cidade"
+            placeholder="Insert city name"
             onChange={({ target }) => dispatch(updateCity(target.value))}
             style={{ backgroundColor: 'darkorange', borderRadius: 10 }}
           />
