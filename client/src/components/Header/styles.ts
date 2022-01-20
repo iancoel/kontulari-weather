@@ -12,6 +12,11 @@ export const HeaderContainer = styled.header`
   align-items: center;
   color: #fbfbff;
 
+  /* Caso o scroll horizontal embaixo do X do autocomplete volte a aparecer */
+  /* & > * {
+    overflow: hidden;
+  } */
+
   @media (max-width: 700px) {
     flex-direction: column;
     overflow-x: hidden;
