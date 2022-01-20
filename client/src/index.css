@@ -92,6 +92,14 @@ video {
   vertical-align: baseline;
   overflow-y: hidden;
 }
+
+@media (max-width: 700px) {
+  html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,

@@ -17,7 +17,7 @@ const Header = () => {
         freeSolo
         size="small"
         options={citiesList}
-        sx={{ width: 400 }}
+        sx={{ width: 240 }}
         inputValue={state ? (state as string) : ''}
         onChange={(event, value) => dispatch(updateCity(value!))}
         onInputChange={(event, value) => dispatch(updateCity(value!))}

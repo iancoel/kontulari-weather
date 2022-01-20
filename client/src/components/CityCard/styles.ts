@@ -9,6 +9,10 @@ export const CardContainer = styled.div`
   background: #633faa;
   border-radius: 10px;
   color: #fbfbff;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.h1`
@@ -57,6 +61,11 @@ export const InnerCardContainer = styled.div<InnerCardContainerProps>`
   &::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;
+  }
+
+  @media (max-width: 700px) {
+    width: calc(100% - 60px);
+    height: auto;
   }
 `;
 

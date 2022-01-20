@@ -11,6 +11,16 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   color: #fbfbff;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 470px) {
+    height: 140px;
+    text-align: center;
+  }
 `;
 
 export const Title = styled.h1`
