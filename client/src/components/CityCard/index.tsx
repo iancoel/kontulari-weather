@@ -31,13 +31,13 @@ const CityCard = () => {
         .get(`?location=${state}`)
         .then((response) => {
           if (containsCity) setCityData(response.data);
-          setTimeout(setLoading, 1500, false);
+          setLoading(false);
         })
         .catch((error) => console.warn(error));
     }
   }, [state]);
 
-  if (!cityData) {
+  if (!cityData && !loading) {
     return <p></p>;
   }
 
