@@ -17,7 +17,7 @@ const Header = () => {
         freeSolo
         size="small"
         options={citiesList}
-        sx={{ width: 300 }}
+        sx={{ width: 400 }}
         inputValue={state ? (state as string) : ''}
         onChange={(event, value) => dispatch(updateCity(value!))}
         onInputChange={(event, value) => dispatch(updateCity(value!))}
@@ -26,6 +26,7 @@ const Header = () => {
             {...params}
             placeholder="Insira o nome da cidade"
             onChange={({ target }) => dispatch(updateCity(target.value))}
+            style={{ backgroundColor: 'darkorange', borderRadius: 10 }}
           />
         )}
       />

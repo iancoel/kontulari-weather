@@ -39,11 +39,11 @@ export const InnerCardContainer = styled.div<InnerCardContainerProps>`
   overflow-y: ${({ scrollable }) => (scrollable ? 'scroll' : 'hidden')};
   scroll-behavior: smooth;
 
-  scrollbar-color: #633faa #ff6542;
+  scrollbar-color: #633faa darkorange;
   scrollbar-width: thin;
 
   &::-webkit-scrollbar-thumb {
-    background-color: #ff6542;
+    background-color: darkorange;
   }
 
   &::-webkit-scrollbar-track {
@@ -80,7 +80,7 @@ export const ForecastContainer = styled.div<ForecastContainerProps>`
 `;
 
 export const SourceButton = styled(Button)`
-  background-color: #ff6542 !important;
+  background-color: darkorange !important;
   margin-left: 20px !important;
   color: #fbfbff !important;
 `;
