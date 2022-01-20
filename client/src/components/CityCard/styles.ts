@@ -91,7 +91,8 @@ export const ForecastContainer = styled.div<ForecastContainerProps>`
 
 export const SourceButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.darkOrange} !important;
-  margin-left: 20px !important;
+  margin-left: 5px !important;
+  margin-top: 10px !important;
   color: ${({ theme }) => theme.colors.white} !important;
 `;
 

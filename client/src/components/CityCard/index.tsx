@@ -119,12 +119,19 @@ const CityCard = () => {
             Timezone {cityData?.timezone.replace('_', ' ')} -{' '}
             {cityData?.timezone_name}
           </Info>
+          <Info>Sources:</Info>
+          {cityData?.sources.map((source, index) => (
+            <ButtonAnchor key={index} href={source.url} target="_blank">
+              <SourceButton>{source.title}</SourceButton>
+            </ButtonAnchor>
+          ))}
         </InnerCardContainer>
         <InnerCardContainer scrollable>
           <Title>Forecasts</Title>
           {cityData?.consolidated_weather.map((forecast: any, index: any) => (
             <ForecastContainer key={index} divisors>
               <Info first>{forecast.weather_state_name}</Info>
+              <Info>Applicable date: {forecast.applicable_date}</Info>
               <Info>Wind Direction: {forecast.wind_direction_compass}</Info>
               <Info>Wind Speed: {+forecast.wind_speed.toFixed(2)}mph</Info>
               <Info>Min. Temp: {+forecast.min_temp.toFixed(0)}°C</Info>
@@ -132,15 +139,6 @@ const CityCard = () => {
               <Info>Current Temp: {+forecast.the_temp.toFixed(0)}°C</Info>
               <Info>Air Pressure: {forecast.air_pressure}mb</Info>
               <Info>Humidity: {forecast.humidity}%</Info>
-              <Info>
-                Source:
-                <ButtonAnchor
-                  href={cityData?.sources[index].url}
-                  target="_blank"
-                >
-                  <SourceButton>{cityData?.sources[index].title}</SourceButton>
-                </ButtonAnchor>
-              </Info>
             </ForecastContainer>
           ))}
         </InnerCardContainer>
