@@ -1,11 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCity } from '../../store/actions';
-import {
-  ButtonsContainer,
-  HeaderContainer,
-  Title,
-  HeaderButton,
-} from './styles';
+import { HeaderContainer, Title } from './styles';
 import { Autocomplete } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import citiesList from '../../utils/citiesList';
@@ -34,14 +29,6 @@ const Header = () => {
           />
         )}
       />
-      <ButtonsContainer>
-        <li>
-          <HeaderButton variant="contained">Botão 1</HeaderButton>
-        </li>
-        <li>
-          <HeaderButton variant="contained">Botão 2</HeaderButton>
-        </li>
-      </ButtonsContainer>
     </HeaderContainer>
   );
 };
