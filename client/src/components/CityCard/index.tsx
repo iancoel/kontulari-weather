@@ -9,10 +9,12 @@ import {
   ForecastContainer,
   SourceButton,
   ButtonAnchor,
+  IconContainer,
 } from './styles';
 import { useSelector } from 'react-redux';
 import { Skeleton } from '@mui/material';
 import { IResponseData } from '../../interfaces';
+import WeatherIcon from '../WeatherIcon';
 
 const CityCard = () => {
   const [cityData, setCityData] = useState<IResponseData>();
@@ -98,7 +100,13 @@ const CityCard = () => {
         <Title>Forecasts</Title>
         {cityData?.consolidated_weather.map((forecast: any, index: any) => (
           <ForecastContainer key={index} divisors>
-            <Info first>{forecast.weather_state_name}</Info>
+            <Info first>
+              <IconContainer>
+                <WeatherIcon weather_state_abbr={forecast.weather_state_abbr} />
+                {forecast.weather_state_name}
+              </IconContainer>
+            </Info>
+
             <Info>Applicable date: {forecast.applicable_date}</Info>
             <Info>Wind Direction: {forecast.wind_direction_compass}</Info>
             <Info>Wind Speed: {+forecast.wind_speed.toFixed(2)}mph</Info>

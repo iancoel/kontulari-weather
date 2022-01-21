@@ -99,3 +99,9 @@ export const SourceButton = styled(Button)`
 export const ButtonAnchor = styled.a`
   text-decoration: none;
 `;
+
+export const IconContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
